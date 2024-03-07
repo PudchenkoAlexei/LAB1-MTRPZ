@@ -19,5 +19,3 @@
 
 приклад:C:\Users\lesha\OneDrive\Рабочий стол\Mark\x64\Debug>mark.exe C:\input.md --out C:\output.html
 активуєте і все що було у .md запишеться у html файл
-
-для реверс коміту
