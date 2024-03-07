@@ -115,3 +115,20 @@ int main(int argc, char* argv[]) {
     string markdown = buffer.str();
 
     string html = processMarkdown(markdown);
+
+    if (argc >= 4 && string(argv[2]) == "--out") {
+        string outputFile = argv[3];
+        ofstream out(outputFile);
+        if (!out.is_open()) {
+            cerr << "Error: Unable to open output file" << endl;
+            return 1;
+        }
+        out << html;
+        out.close();
+    }
+    else {
+        cout << html << endl;
+    }
+
+    return 0;
+}
