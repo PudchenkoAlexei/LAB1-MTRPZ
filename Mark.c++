@@ -97,3 +97,21 @@ string processMarkdown(const string& markdown) {
 
     return html;
 }
+int main(int argc, char* argv[]) {
+    if (argc < 2) {
+        cerr << "Usage: " << argv[0] << " <input_file> --out <output_file>" << endl;
+        return 1;
+    }
+
+    string inputFile = argv[1];
+    ifstream file(inputFile);
+    if (!file.is_open()) {
+        cerr << "Error: Unable to open input file" << endl;
+        return 1;
+    }
+
+    stringstream buffer;
+    buffer << file.rdbuf();
+    string markdown = buffer.str();
+
+    string html = processMarkdown(markdown);
